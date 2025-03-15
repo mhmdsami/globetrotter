@@ -5,6 +5,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-primary: #8000ff;
+  --color-secondary: #e5016e;
+
+  --color-input: #e2e2e2;
+
+  --color-muted-text: #9f9f9f;
+
+  --color-background: #ffffff;
+}
+
 body {
   @apply font-sans;
 }
