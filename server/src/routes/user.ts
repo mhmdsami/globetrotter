@@ -122,6 +122,7 @@ router.get("/me", authenticateUser, async (c) => {
       email,
     },
     select: {
+      id: true,
       email: true,
       username: true,
       score: true,
@@ -131,11 +132,21 @@ router.get("/me", authenticateUser, async (c) => {
     return c.json({ success: false, error: "User not found" }, 404);
   }
 
+  const gameSessions = await db.gameSession.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
   return c.json(
     {
       success: true,
       data: {
         user,
+        gameSessions,
       },
     },
     200,

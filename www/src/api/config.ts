@@ -7,6 +7,13 @@ export const API = {
       SIGN_IN: () => "/sign-in",
       ME: () => "/me",
     },
+    GAME: {
+      BASE_URL: () => "/game",
+      START: () => "/start",
+      NEXT: () => "/next",
+      GUESS: () => "/guess",
+      GAME_STATE: (gameSessionId: string) => `/current-state/${gameSessionId}`
+    },
   },
 };
 

@@ -28,6 +28,7 @@ app.get("/healthcheck", (c) => {
 });
 
 app.route("/user", router.user);
+app.route("/game", router.game);
 
 app.notFound((c) => c.json({ success: false, message: "Not Found" }, 404));
 app.onError((err, c) => {

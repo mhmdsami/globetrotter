@@ -1,0 +1,210 @@
+[
+  {
+    "city": "Paris",
+    "country": "France",
+    "clues": [
+      "This city is home to a famous tower that sparkles every night.",
+      "Known as the 'City of Love' and a hub for fashion and art."
+    ],
+    "fun_fact": [
+      "The Eiffel Tower was supposed to be dismantled after 20 years but was saved because it was useful for radio transmissions!",
+      "Paris has only one stop sign in the entire city—most intersections rely on priority-to-the-right rules."
+    ],
+    "trivia": [
+      "This city is famous for its croissants and macarons. Bon appétit!",
+      "Paris was originally a Roman city called Lutetia."
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan",
+    "clues": [
+      "This city has the busiest pedestrian crossing in the world.",
+      "You can visit an entire district dedicated to anime, manga, and gaming."
+    ],
+    "fun_fact": [
+      "Tokyo was originally a small fishing village called Edo before becoming the bustling capital it is today!",
+      "More than 14 million people live in Tokyo, making it one of the most populous cities in the world."
+    ],
+    "trivia": [
+      "The city has over 160,000 restaurants, more than any other city in the world.",
+      "Tokyo's subway system is so efficient that train delays of just a few minutes come with formal apologies."
+    ]
+  },
+  {
+    "city": "New York",
+    "country": "USA",
+    "clues": [
+      "Home to a green statue gifted by France in the 1800s.",
+      "Nicknamed 'The Big Apple' and known for its Broadway theaters."
+    ],
+    "fun_fact": [
+      "The Statue of Liberty was originally a copper color before oxidizing to its iconic green patina.",
+      "Times Square was once called Longacre Square before being renamed in 1904."
+    ],
+    "trivia": [
+      "New York City has 468 subway stations, making it one of the most complex transit systems in the world.",
+      "The Empire State Building has its own zip code: 10118."
+    ]
+  },
+  {
+    "city": "London",
+    "country": "United Kingdom",
+    "clues": [
+      "This city is home to a royal family and iconic red double-decker buses.",
+      "It boasts a famous clock tower called Big Ben (though the tower's actual name is the Elizabeth Tower)."
+    ],
+    "fun_fact": [
+      "The London Underground is the oldest subway system in the world, opening in 1863.",
+      "London is home to the world's first modern public transportation system, the omnibus, which started in 1829."
+    ],
+    "trivia": [
+      "The British Museum in London houses over 8 million works of art.",
+      "London is one of the most-visited cities in the world, attracting over 19 million international visitors annually."
+    ]
+  },
+  {
+    "city": "Berlin",
+    "country": "Germany",
+    "clues": [
+      "This city has a famous wall that once divided it into East and West.",
+      "Known for its vibrant arts scene and historic sites."
+    ],
+    "fun_fact": [
+      "The Berlin Wall was constructed overnight in 1961 and fell in 1989, symbolizing the end of the Cold War.",
+      "Berlin is home to the world's largest urban zoo, the Berlin Zoo, founded in 1844."
+    ],
+    "trivia": [
+      "The Brandenburg Gate in Berlin was once a symbol of division and is now a symbol of reunification.",
+      "Berlin has more bridges than Venice, Italy!"
+    ]
+  },
+  {
+    "city": "Sydney",
+    "country": "Australia",
+    "clues": [
+      "Known for its iconic Opera House and Harbour Bridge.",
+      "This city's beaches are famous worldwide, especially Bondi Beach."
+    ],
+    "fun_fact": [
+      "The Sydney Opera House is one of the most recognizable buildings in the world, designed by Danish architect Jørn Utzon.",
+      "The Sydney Harbour Bridge is often called the 'Coathanger' because of its shape."
+    ],
+    "trivia": [
+      "Sydney is Australia's largest city by population.",
+      "The first European settlement in Australia was established in Sydney in 1788."
+    ]
+  },
+  {
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "clues": [
+      "Known for its carnival, samba music, and the towering Christ the Redeemer statue.",
+      "The city's beaches, such as Copacabana and Ipanema, are world-famous."
+    ],
+    "fun_fact": [
+      "Rio hosted the 2016 Summer Olympics, becoming the first South American city to do so.",
+      "The Christ the Redeemer statue stands 98 feet tall and overlooks the city from the top of Corcovado Mountain."
+    ],
+    "trivia": [
+      "Rio's Carnival is one of the largest and most famous in the world.",
+      "The Sugarloaf Mountain in Rio offers panoramic views of the city and bay."
+    ]
+  },
+  {
+    "city": "Moscow",
+    "country": "Russia",
+    "clues": [
+      "Home to the Kremlin and the iconic Red Square.",
+      "Known for its onion-domed churches, including St. Basil's Cathedral."
+    ],
+    "fun_fact": [
+      "The Moscow Metro is one of the busiest and most beautiful subway systems in the world, featuring grand architecture.",
+      "Moscow's Red Square was originally used for military parades and public gatherings."
+    ],
+    "trivia": [
+      "Moscow is the largest city in Russia, with a population of over 12 million people.",
+      "The Moscow Kremlin is a UNESCO World Heritage Site and one of the oldest fortified cities in the world."
+    ]
+  },
+  {
+    "city": "Rome",
+    "country": "Italy",
+    "clues": [
+      "This city was once the heart of a vast empire that ruled much of Europe.",
+      "It is home to the Colosseum, the Roman Forum, and the Vatican City."
+    ],
+    "fun_fact": [
+      "The Colosseum could hold up to 50,000 spectators and hosted gladiator contests and public spectacles.",
+      "Rome's famous fountains are a reminder of its ancient aqueduct system, which still feeds many of them today."
+    ],
+    "trivia": [
+      "The Vatican City, an independent state, is located entirely within Rome.",
+      "Rome has more fountains than any other city in the world, over 280!"
+    ]
+  },
+  {
+    "city": "Barcelona",
+    "country": "Spain",
+    "clues": [
+      "Famous for its surreal architecture by Antoni Gaudí, including the Sagrada Familia.",
+      "It's also known for its beaches and vibrant arts and culture scene."
+    ],
+    "fun_fact": [
+      "The Sagrada Familia basilica, which began construction in 1882, is still unfinished to this day.",
+      "Barcelona was once the host city for the 1992 Summer Olympics, which helped modernize the city's infrastructure."
+    ],
+    "trivia": [
+      "Barcelona is home to one of the most popular soccer clubs in the world, FC Barcelona.",
+      "The city's Park Güell was originally intended to be a residential development but is now a UNESCO World Heritage site."
+    ]
+  },
+  {
+    "city": "Los Angeles",
+    "country": "USA",
+    "clues": [
+      "Known as 'The City of Angels' and home to the Hollywood film industry.",
+      "The city is famous for its beaches, including Venice Beach and Santa Monica."
+    ],
+    "fun_fact": [
+      "Los Angeles is the birthplace of the modern movie industry, with Hollywood being the center of global cinema.",
+      "The Hollywood Sign originally read 'Hollywoodland' and was an advertisement for a real estate development."
+    ],
+    "trivia": [
+      "Los Angeles is the second-largest city in the United States by population.",
+      "The city is home to more than 1,000 museums, galleries, and theaters."
+    ]
+  },
+  {
+    "city": "Cairo",
+    "country": "Egypt",
+    "clues": [
+      "This city is home to the ancient pyramids and the Sphinx.",
+      "Known for its rich history dating back to the Pharaonic era."
+    ],
+    "fun_fact": [
+      "The Great Pyramid of Giza is the only surviving Wonder of the Ancient World.",
+      "Cairo is one of the largest cities in Africa, with a population exceeding 9 million."
+    ],
+    "trivia": [
+      "Cairo is known for its bustling markets, such as Khan El Khalili, one of the oldest bazaars in the world.",
+      "The Egyptian Museum in Cairo houses the world's largest collection of ancient Egyptian artifacts."
+    ]
+  },
+  {
+    "city": "Bangkok",
+    "country": "Thailand",
+    "clues": [
+      "Famous for its vibrant street life, cultural landmarks, and ornate temples.",
+      "Home to the Grand Palace and the Emerald Buddha."
+    ],
+    "fun_fact": [
+      "Bangkok's full name is the longest city name in the world, with 169 letters in Thai.",
+      "The city's Chao Phraya River is a major waterway running through the heart of Bangkok."
+    ],
+    "trivia": [
+      "Bangkok is known for its floating markets, such as the Damnoen Saduak Market.",
+      "It has one of the largest and busiest street markets in the world, Chatuchak Weekend Market."
+    ]
+  }
+]
