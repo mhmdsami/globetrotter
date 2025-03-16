@@ -18,7 +18,7 @@ git clone https://github.com/<your-username>/globetrotter.git
 ```
 
 ### Setup
-The repo consists of two parts [www] (/www)(the application) and [server] (/server)(the api)
+The repo consists of two parts [www](/www) (the application) and [server](/server) (the api)
 
 ### Application
 
