@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { signInApi } from "~/api/user";
@@ -14,6 +14,7 @@ import { withToast } from "~/utils/with-toast";
 
 export default function SignIn() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const form = useForm({
     defaultValues: {
@@ -37,6 +38,11 @@ export default function SignIn() {
     },
     onSuccess: (data) => {
       localStorage.setItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN, data.token);
+      const redirectTo = searchParams.get("redirectTo");
+      if (redirectTo) {
+        return router.push(redirectTo);
+      }
+
       router.push("/dashboard");
     },
   });

@@ -12,7 +12,14 @@ export const API = {
       START: () => "/start",
       NEXT: () => "/next",
       GUESS: () => "/guess",
-      GAME_STATE: (gameSessionId: string) => `/current-state/${gameSessionId}`
+      GAME_STATE: (gameSessionId: string) => `/current-state/${gameSessionId}`,
+      END: () => "/end",
+    },
+    CHALLENGE: {
+      BASE_URL: () => "/challenge",
+      CREATE: () => "/create",
+      GET: (id: string) => `/${id}`,
+      ACCEPT: () => "/accept",
     },
   },
 };

@@ -31,9 +31,8 @@ model Destination {
 
 model User {
   id                 String        @id @default(auto()) @map("_id") @db.ObjectId
-  username           String        @unique
   email              String        @unique
-  password           String
+  password           String?
   score              Int           @default(0)
   gameSessions       GameSession[]
   createdChallenges  Challenge[]   @relation(name: "CreatorRelation")
@@ -67,32 +66,27 @@ model Game {
 }
 
 model GameSession {
-  id                String      @id @default(auto()) @map("_id") @db.ObjectId
-  user              User        @relation(fields: [userId], references: [id])
-  userId            String      @db.ObjectId
-  score             Int         @default(0)
-  games             Game[]
-  isActive          Boolean     @default(true)
-  createdChallenge  Challenge[] @relation(name: "CreatorSessionRelation")
-  receivedChallenge Challenge[] @relation(name: "OpponentSessionRelation")
-  createdAt         DateTime    @default(now())
-  updatedAt         DateTime    @default(now()) @updatedAt
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  score     Int      @default(0)
+  games     Game[]
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@map("sessions")
 }
 
 model Challenge {
-  id               String      @id @default(auto()) @map("_id") @db.ObjectId
-  creator          User        @relation(name: "CreatorRelation", fields: [creatorId], references: [id])
-  creatorId        String      @db.ObjectId
-  creatorSession   GameSession @relation(name: "CreatorSessionRelation", fields: [creatorSessionId], references: [id])
-  creatorSessionId String      @db.ObjectId
-  player           User        @relation(name: "OpponentRelation", fields: [playerId], references: [id])
-  playerId         String      @db.ObjectId
-  playerSession    GameSession @relation(name: "OpponentSessionRelation", fields: [playerSessionId], references: [id])
-  playerSessionId  String      @db.ObjectId
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @default(now()) @updatedAt
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  creator    User     @relation(name: "CreatorRelation", fields: [creatorId], references: [id])
+  creatorId  String   @db.ObjectId
+  player     User     @relation(name: "OpponentRelation", fields: [playerId], references: [id])
+  playerId   String   @db.ObjectId
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  isAccepted Boolean  @default(false)
 
   @@map("challenges")
 }

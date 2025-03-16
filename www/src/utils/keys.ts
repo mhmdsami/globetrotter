@@ -7,6 +7,9 @@ const QUERY_KEYS = {
   GUESS_GAME: "guess_game",
   NEXT_GAME: "next_game",
   GAME_STATE: "game_state",
+
+  CREATE_CHALLENGE: "create_challenge",
+  ACCEPT_CHALLENGE: "accept_challenge",
 } as const;
 
 const LOCAL_STORAGE_KEYS = {

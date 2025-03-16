@@ -1,8 +1,8 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { rateLimiter } from "hono-rate-limiter";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { rateLimiter } from "hono-rate-limiter";
 import * as router from "./routes/index.js";
 import { PORT } from "./utils/config.js";
 
@@ -16,7 +16,7 @@ app.use(
     limit: 60,
     standardHeaders: "draft-6",
     keyGenerator: (c) => "<unique_key>",
-  })
+  }),
 );
 
 app.get("/", (c) => {
@@ -29,6 +29,7 @@ app.get("/healthcheck", (c) => {
 
 app.route("/user", router.user);
 app.route("/game", router.game);
+app.route("/challenge", router.challenge);
 
 app.notFound((c) => c.json({ success: false, message: "Not Found" }, 404));
 app.onError((err, c) => {

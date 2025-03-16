@@ -19,7 +19,6 @@ export const signInApi = async (credentials: {
   const data = (await res.json()) as ApiResponse<{
     token: string;
     user: {
-      username: string;
       email: string;
       score: number;
     };
@@ -32,7 +31,6 @@ export const signInApi = async (credentials: {
 };
 
 export const signUpApi = async (credentials: {
-  username: string;
   email: string;
   password: string;
 }) => {
@@ -52,7 +50,6 @@ export const signUpApi = async (credentials: {
   const data = (await res.json()) as ApiResponse<{
     token: string;
     user: {
-      username: string;
       email: string;
       score: number;
     };
@@ -75,20 +72,34 @@ export const getUserApi = async () => {
   );
 
   const data = (await res.json()) as ApiResponse<{
-    token: string;
     user: {
-      username: string;
       email: string;
       score: number;
     };
-    gameSessions: Array<{
+    activeSession?: {
       id: string;
       score: number;
-      createdAt: Date;
-      updatedAt: Date;
       userId: string;
       isActive: boolean;
-    }>;
+    };
+    challenges: {
+      createdChallenges: Array<{
+        id: string;
+        isAccepted: boolean;
+        player: {
+          email: string;
+          score: number;
+        };
+      }>;
+      receivedChallenges: Array<{
+        id: string;
+        isAccepted: boolean;
+        creator: {
+          email: string;
+          score: number;
+        };
+      }>;
+    };
   }>;
   if (!data.success) {
     throw new Error(data.error);

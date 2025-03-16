@@ -3,12 +3,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import confetti from "canvas-confetti";
+import { Loader2 } from "lucide-react";
 import { animate } from "motion/react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { getGameStateApi, guessApi } from "~/api/game";
+import { endGameApi, getGameStateApi, guessApi } from "~/api/game";
 import { Button } from "~/components/button";
 import { Input } from "~/components/input";
 import { QUERY_KEYS } from "~/utils/keys";
@@ -18,6 +19,7 @@ import ResultModal from "./components/result-modal";
 
 export default function GameSession() {
   const { sessionId } = useParams<{ sessionId: string }>();
+  const router = useRouter();
   const queryClient = useQueryClient();
 
   const [showModal, setShowModal] = useState(false);
@@ -56,7 +58,7 @@ export default function GameSession() {
     ),
   });
 
-  const { mutate: guess } = useMutation({
+  const { mutate: guess, isPending: isGuessing } = useMutation({
     mutationKey: [QUERY_KEYS.GUESS_GAME],
     mutationFn: async (data: {
       gameSessionId: string;
@@ -66,14 +68,27 @@ export default function GameSession() {
       return await withToast(guessApi(data));
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.GAME_STATE, data.gameSession.id],
-      }).then(() => {
-        setShowModal(true);
-      });
+      queryClient
+        .invalidateQueries({
+          queryKey: [QUERY_KEYS.GAME_STATE, sessionId],
+        })
+        .then(() => {
+          setShowModal(true);
+        });
 
       if (data.isCorrect) showConfetti();
       form.reset();
+    },
+  });
+
+  const { mutate: endGame, isPending: isEnding } = useMutation({
+    mutationKey: [QUERY_KEYS.GUESS_GAME],
+    mutationFn: async () => {
+      return await withToast(endGameApi());
+    },
+    onSuccess: () => {
+      router.push("/dashboard");
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.ME] });
     },
   });
 
@@ -118,7 +133,7 @@ export default function GameSession() {
         isOpen={showModal}
         setIsOpen={setShowModal}
       />
-      <div className="bg-primary absolute top-20 md:top-24 right-0 mx-4 lg:mx-10 rounded-lg px-5 py-3 text-center text-white">
+      <div className="from-primary to-secondary absolute top-20 right-0 mx-4 rounded-lg bg-linear-to-b px-5 py-4 text-center text-white md:top-24 lg:mx-10">
         <div className="font-medium">Score</div>
         <div className="text-3xl font-semibold" ref={ref}>
           {score}
@@ -140,6 +155,7 @@ export default function GameSession() {
                 register={form.register}
               />
               <Button
+                disabled={isGuessing || isGuessing}
                 onClick={form.handleSubmit((data) => {
                   guess({
                     gameSessionId: gameState.gameSession.id,
@@ -148,7 +164,18 @@ export default function GameSession() {
                   });
                 })}
               >
-                Guess
+                {isGuessing ? (
+                  <Loader2 size={24} className="animate-spin" />
+                ) : (
+                  "Guess"
+                )}
+              </Button>
+              <Button
+                disabled={isGuessing || isGuessing}
+                variant="outline"
+                onClick={() => endGame()}
+              >
+                End Game
               </Button>
             </>
           )}

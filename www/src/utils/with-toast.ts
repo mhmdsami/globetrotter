@@ -1,6 +1,7 @@
 import { toast } from "~/components/toast";
 
 const getErrorMessage = (error: any) => {
+  console.error(error);
   if (error instanceof Error) {
     return error.message;
   }

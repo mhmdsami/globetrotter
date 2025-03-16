@@ -1,5 +1,5 @@
+import "dotenv/config";
 import { z } from "zod";
-import "dotenv/config"; 
 
 const configSchema = z.object({
   PORT: z.string().default("8000").transform(Number),
@@ -7,8 +7,6 @@ const configSchema = z.object({
   JWT_SECRET: z.string().default("secret"),
 });
 
-export const {
-  PORT,
-  DATABASE_URL,
-  JWT_SECRET,
-} = configSchema.parse(process.env);
+export const { PORT, DATABASE_URL, JWT_SECRET } = configSchema.parse(
+  process.env,
+);

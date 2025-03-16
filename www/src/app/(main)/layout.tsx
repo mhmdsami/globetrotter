@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import icon from "~/app/icon.svg";
+import ChallengeModal from "./dashboard/components/challenge-modal";
 import Logout from "./dashboard/components/logout";
 import ProtectedRoute from "./dashboard/components/protected-route";
 
@@ -17,7 +18,10 @@ export default function AuthLayout({
             <Image src={icon} alt="icon" height={24} width={24} />
             <div className="text-lg font-semibold">Globetrotter</div>
           </Link>
-          <Logout />
+          <div className="flex items-center gap-2">
+            <ChallengeModal />
+            <Logout />
+          </div>
         </nav>
         <main className="flex grow flex-col">{children}</main>
       </div>

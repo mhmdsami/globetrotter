@@ -12,7 +12,7 @@ const ClueCard = ({ clue }: ClueCardProps) => {
 
   return (
     <motion.div
-      className="relative h-72 w-52 cursor-pointer rounded-xl shadow-2xl"
+      className="relative h-72 w-52 cursor-pointer rounded-xl shadow-xl"
       onClick={() => setFlipped(!flipped)}
       animate={{
         rotateY: flipped ? 180 : 0,

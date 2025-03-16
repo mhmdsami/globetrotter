@@ -126,3 +126,22 @@ export const getGameStateApi = async (gameSessionId: string) => {
 
   return data.data;
 };
+
+export const endGameApi = async () => {
+  const res = await fetch(
+    API.BASE_URL + API.ENDPOINTS.GAME.BASE_URL() + API.ENDPOINTS.GAME.END(),
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN)}`,
+      },
+    },
+  );
+
+  const data = (await res.json()) as ApiResponse<never>;
+  if (!data.success) {
+    throw new Error(data.error);
+  }
+
+  return true;
+};

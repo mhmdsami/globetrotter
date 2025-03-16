@@ -4,6 +4,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { LOCAL_STORAGE_KEYS } from "~/utils/keys";
 
+export const UNPROTECTED_PATHS = [/\/challenge\/[\w]{24}/];
+
 const isTokenExpired = (token: string) => {
   if (!token) return true;
 
@@ -21,6 +23,7 @@ export default function ProtectedRoute({
   const pathname = usePathname();
 
   useEffect(() => {
+    if (UNPROTECTED_PATHS.some((path) => pathname.match(path))) return;
     const token = localStorage.getItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
 
     if (!token || isTokenExpired(token)) {

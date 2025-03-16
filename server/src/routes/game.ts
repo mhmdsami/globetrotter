@@ -296,15 +296,15 @@ router.get(
     }
 
     const clues =
-      game.guessCount > 1 && !game.isCorrect
+      game.guessCount >= 1 && !game.isCorrect
         ? game.destination.clues
         : [game.destination.clues[game.metadata.clueIndex]];
     const funFacts =
-      game.guessCount > 1
+      game.guessCount >= 1
         ? game.destination.funFacts
         : [game.destination.funFacts[game.metadata.funFactIndex]];
     const trivia =
-      game.guessCount > 1
+      game.guessCount >= 1
         ? game.destination.trivia
         : [game.destination.trivia[game.metadata.triviaIndex]];
 
@@ -326,5 +326,29 @@ router.get(
     });
   },
 );
+
+router.post("/end", authenticateUser, async (c) => {
+  const { email } = c.get("jwtPayload");
+  const user = await db.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (!user) {
+    return c.json({ success: false, error: "User not found" }, 404);
+  }
+
+  await db.gameSession.updateMany({
+    where: {
+      userId: user.id,
+      isActive: true,
+    },
+    data: {
+      isActive: false,
+    },
+  });
+
+  return c.json({ success: true, message: "Game session ended" });
+});
 
 export default router;

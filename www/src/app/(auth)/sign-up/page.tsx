@@ -17,15 +17,11 @@ export default function SignIn() {
 
   const form = useForm({
     defaultValues: {
-      username: "",
       email: "",
       password: "",
     },
     resolver: zodResolver(
       z.object({
-        username: z
-          .string({ message: "Username is required" })
-          .min(3, { message: "Username must be at least 3 characters" }),
         email: z
           .string({ message: "Email is required" })
           .email({ message: "Enter a valid email" }),
@@ -38,11 +34,7 @@ export default function SignIn() {
 
   const { mutate: signUp } = useMutation({
     mutationKey: [QUERY_KEYS.SIGN_UP],
-    mutationFn: async (credentials: {
-      username: string;
-      email: string;
-      password: string;
-    }) => {
+    mutationFn: async (credentials: { email: string; password: string }) => {
       return await withToast(signUpApi(credentials), {
         success: "Account created successfully",
       });
@@ -55,12 +47,6 @@ export default function SignIn() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Input
-        name="username"
-        label="Username"
-        register={form.register}
-        errorMessage={form.formState.errors.username?.message}
-      />
       <Input
         name="email"
         label="Email"

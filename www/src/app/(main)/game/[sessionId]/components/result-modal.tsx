@@ -40,6 +40,7 @@ interface ResultModalProps {
   setIsOpen: (isOpen: boolean) => void;
   isCorrect: boolean;
   canContinue: boolean;
+  funFacts: string[];
 }
 
 export default function ResultModal({
@@ -47,6 +48,7 @@ export default function ResultModal({
   setIsOpen,
   isCorrect,
   canContinue,
+  funFacts,
 }: ResultModalProps) {
   const { sessionId } = useParams<{ sessionId: string }>();
 
@@ -71,7 +73,7 @@ export default function ResultModal({
           <div>
             <div className="text-center text-2xl font-bold">Correct!</div>
             <Lottie animationData={correct} className="mx-auto h-20 w-20" />
-            <p className="text-center text-lg">
+            <p className="text-center text-lg font-medium">
               {
                 correctGuesses[
                   Math.floor(Math.random() * correctGuesses.length)
@@ -83,7 +85,7 @@ export default function ResultModal({
           <div>
             <div className="text-center text-2xl font-bold">Incorrect!</div>
             <Lottie animationData={incorrect} className="mx-auto h-16 w-16" />
-            <p className="text-center text-lg">
+            <p className="text-center text-lg font-medium">
               {
                 incorrectGuesses[
                   Math.floor(Math.random() * incorrectGuesses.length)
@@ -103,6 +105,9 @@ export default function ResultModal({
               Next Game
             </Button>
           </DialogClose>
+        </div>
+        <div className="text-center text-sm font-medium">
+          {funFacts[Math.floor(Math.random() * funFacts.length)]}
         </div>
       </DialogContent>
     </Dialog>
