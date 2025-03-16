@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import { Toaster } from "~/components/toast";
 import AppContextProvider from "~/contexts";
 import { tw } from "~/utils/ui";
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={tw(geistSans.variable, geistMono.variable, "antialiased")}
       >
-        <AppContextProvider>{children}</AppContextProvider>
+        <Suspense>
+          <AppContextProvider>{children}</AppContextProvider>
+        </Suspense>
         <Toaster />
       </body>
     </html>

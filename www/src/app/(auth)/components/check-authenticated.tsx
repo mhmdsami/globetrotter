@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { LOCAL_STORAGE_KEYS } from "~/utils/keys";
 
 export default function CheckAuthenticated({
