@@ -13,12 +13,12 @@ export default function AuthLayout({
   return (
     <ProtectedRoute>
       <div className="flex h-screen flex-col">
-        <nav className="flex items-center justify-between p-4 lg:p-10">
+        <nav className="flex items-center justify-center md:justify-between p-4 lg:p-10 flex-wrap gap-4">
           <Link href="/dashboard" className="flex items-center gap-2">
             <Image src={icon} alt="icon" height={24} width={24} />
             <div className="text-lg font-semibold">Globetrotter</div>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-between w-full md:w-auto">
             <ChallengeModal />
             <Logout />
           </div>

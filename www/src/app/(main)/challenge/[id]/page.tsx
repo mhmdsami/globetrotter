@@ -108,7 +108,7 @@ export default function AcceptChallenge() {
       </div>
       <Lottie animationData={paperPlane} className="w-[200px]" />
       <div className="flex flex-col items-center gap-3">
-        <div className="text-xl">
+        <div className="text-xl text-center">
           <span className="font-semibold">{data.creator.email}</span> has
           challenged you
         </div>
